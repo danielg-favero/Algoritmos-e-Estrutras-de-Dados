@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//      PROBLEMA        //
+/*
+Dado um grande número de arquivos digitais em um computador. Cada arquivo ocupa um certo número de KB. Deseja-se armazenar a maior quantidade de arquivos em                uma mídia comcapacidade C. O problema pode ser modelado na seguinte maneira: dados números naturais representando o tamanho dos arquivosA={a1, a2, ..., an} e um valor C. Deseja-se encontrar o maior subconjunto S que satisfaça a restrição max(∑ ai) ≤ C. Em seguida, faça a análise decomplexidade da solução.
+*/
+
 //Estrutura para armazenar o subconjunto S (Opcional)
 typedef struct
 {
