@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // Função mergesort, divide o vetor em sub-vetores, até que o tamanho desses vetores seja 1.
 // Depois, chama a função merge, que ordena os sub-vetores aos pares até que o vetor esteja 
