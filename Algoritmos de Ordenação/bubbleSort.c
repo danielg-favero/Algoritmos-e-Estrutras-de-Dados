@@ -1,4 +1,4 @@
-
+#include <stdio.h>
 
 // O bubble-sort é um algoritmo simples de ordenação, percorremos o vetor
 // encontrando o maior valor e colocando-o no fim do vetor
