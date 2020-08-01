@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // O insertion sort é um algoritmo de ordenação simples que percorre o vetor, inserindo os valores na posição correta
 // Como em um jogo de cartas, conforme recebemos cada carta, colocamos ela na posição correta.
