@@ -1,22 +1,23 @@
-//validar se um vértice pode ser inserido no grafo ou se ele existe no grafo
-static int validateVertice(Graph *g, int v)
-{
-    return (v >= 0) && (v <= g->vertices);
-}
-
-//verificar se já existe uma aresta que conecta v1 a v2
+//verificar a existência de uma areste entre os vértices
 static int existEdge(Graph *g, int v1, int v2)
 {
-    return (g != NULL) && (validateVertice(g, v1)) && (validateVertice(g, v2)) && (g->adjacentMatrix[v1][v2] == 1);
+    //Como o grafo não é direcional, podemos apenas procurar em uma só lista
+    if (g != NULL && g->adjacentList[v1]->head != NULL)
+    {
+        //Usando funções auxiliares de lista encadeada para encontrar a posição do vértice na lista
+        return searchNode(g->adjacentList[v1], v2);
+    }
+
+    return 0;
 }
 
-//Inserir uma aresta que conecta v1 a v2
+//Inserir uma aresta entre dois vértices
 static void insertEdge(Graph *g, int v1, int v2)
 {
     if (!existEdge(g, v1, v2))
     {
-        g->adjacentMatrix[v1][v2] = 1;
-        g->adjacentMatrix[v2][v1] = 1;
+        insertNode(g->adjacentList[v1], v2);
+        insertNode(g->adjacentList[v2], v1);
         g->edges++;
     }
 }
