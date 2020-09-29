@@ -1,0 +1,22 @@
+//Algoritmo para imprimir o menor caminho entre dois vértices
+//OBS: Executar o algoritmo de busca em largura para iniciar o vetor fathers
+void printShortestPath(Graph *g, int origin, int destination)
+{
+    if (origin == destination)
+    {
+        printf("%d ", origin);
+    }
+    else
+    {
+        //o vértice de destino não possui um pai, portanto não possui caminho até ele
+        if (g->fathers[destination] == -1)
+        {
+            printf("Não existe caminho de %d até %d\n\n", origin, destination);
+        }
+        else
+        {
+            printShortestPath(g, origin, g->fathers[destination]);
+            printf("%d ", destination);
+        }
+    }
+}
