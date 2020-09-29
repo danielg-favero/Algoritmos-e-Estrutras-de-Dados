@@ -1,0 +1,26 @@
+//Desenfileirar nó
+Node *dequeue(Queue *q)
+{
+    Node *aux = NULL;
+
+    if (!queueIsEmpty(q))
+    {
+        aux = q->begin;
+        
+        //CASO 1: Existe apenas 1 nó na fila
+        if (q->begin == q->end)
+        {
+            q->begin = NULL;
+            q->end = NULL;
+        }
+        else
+        {
+        //CASO 2: O primeiro item é desenfileirado
+            aux = q->begin;
+            q->begin = q->begin->next;
+            free(aux);
+        }
+    }
+
+    return aux; //retornar o nó desenfileirado para processamento
+}
