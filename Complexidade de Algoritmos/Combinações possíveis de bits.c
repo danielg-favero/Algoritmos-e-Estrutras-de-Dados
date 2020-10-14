@@ -22,12 +22,3 @@ void printBitsSequence(int n){
         printf("\n");
     }
 }
-
-int main(){
-    int n;
-
-    printf("Informe o tamanho da sequencia: ");
-    scanf("%d", &n);
-
-    printBitsSequence(n);
-}
