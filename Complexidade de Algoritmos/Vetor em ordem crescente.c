@@ -21,30 +21,3 @@ int isInAscendingOrder(int *v, int n){
         return 1;
     }
 }
-
-int main(){
-    int *v; 
-    int n;
-    int i;
-    int isAscending;
-
-    printf("Informe o tamanho do vetor: ");
-    scanf("%d", &n);
-
-    v = malloc(n * sizeof(int));
-
-    for(i = 0; i < n; i++){
-        printf("%d: ", i + 1);
-        scanf("%d", &v[i]);
-    }
-
-    isAscending = isInAscendingOrder(v, n);
-
-    if(isAscending == 1){
-        printf("\nO vetor está em ordem crescente!\n");
-    } else if(isAscending == 0){
-        printf("\nO vetor NÃO está em ordem crescente!\n");
-    } else if(isAscending == -1){
-        printf("\nA sequência é constante!\n");
-    }
-}
