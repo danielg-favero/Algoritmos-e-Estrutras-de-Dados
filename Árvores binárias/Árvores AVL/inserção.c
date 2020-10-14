@@ -1,13 +1,3 @@
-typedef struct Node Node;
-
-struct Node
-{
-    int key;
-    int balancingFactor; //fator de balanceamento 
-    Node *left;
-    Node *right;
-};
-
 //Realizar rotação da direita
 Node *rotateLeft(Node *tree)
 {
