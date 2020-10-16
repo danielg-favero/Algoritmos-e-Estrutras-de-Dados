@@ -66,7 +66,7 @@ static int removeFromQueue(Queue *q, int *weights, int n)
 }
 
 //algoritmo de Prim para gerar uma árvore de caminho mínimo em grafos ponderados
-void primAlgorithmForAM(GraphAM *gm, int root)
+int *primsAlgorithmForAM(GraphAM *gm, int root)
 {
     Queue *priorityQueue = createQueue();
     NodeList *adjacentList;
@@ -80,10 +80,13 @@ void primAlgorithmForAM(GraphAM *gm, int root)
     //vetor para ter controle dos pesos mínimos
     int weights[gm->vertices];
 
+    //arvore mínima a ser gerada
+    int tree[gm->vertices];
+
     for (i = 0; i < gm->vertices; i++)
     {
         weights[i] = INF;          // iniciar todos os pesos com infinito
-        gm->fathers[i] = -1;       // iniciar todos os pais dos vértices com -1 (não possuem pais)
+        tree[i] = -1;              // iniciar todos os pais dos vértices com -1 (não possuem pais)
         enqueue(priorityQueue, i); // enfileirar todos os vértices para contruir a árvore
     }
 
@@ -105,11 +108,13 @@ void primAlgorithmForAM(GraphAM *gm, int root)
 
             if (isInQueue(priorityQueue, adjacentList->key) && gm->adjacentMatrix[i][currentVertex] < weights[currentVertex])
             {
-                gm->fathers[currentVertex] = i;
+                tree[currentVertex] = i;
                 weights[currentVertex] = gm->adjacentMatrix[i][currentVertex];
             }
 
             adjacentList = adjacentList->next;
         }
     }
+
+    return tree;
 }
